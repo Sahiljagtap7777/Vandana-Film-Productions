@@ -1,35 +1,42 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
 
 const Movies = ({ fullPage = false }) => {
-  const movies = [
-    {
-      id: 1,
-      title: "The Last Sunset",
-      year: "2023",
-      genre: "Drama",
-      description: "A poignant story about love and loss set against the backdrop of war.",
-      image: "https://via.placeholder.com/300x450"
-    },
-    {
-      id: 2,
-      title: "Midnight Whispers",
-      year: "2022",
-      genre: "Thriller",
-      description: "A psychological thriller that keeps you guessing until the very end.",
-      image: "https://via.placeholder.com/300x450"
-    },
-    {
-      id: 3,
-      title: "Eternal Bonds",
-      year: "2021",
-      genre: "Romance",
-      description: "A timeless love story that transcends generations.",
-      image: "https://via.placeholder.com/300x450"
-    }
-  ];
+  const navigate = useNavigate();
+ const movies = [
+  {
+    id: 1,
+    title: "The Last Sunset",
+    year: "2023",
+    genre: "Drama",
+    description: "A poignant story about love and loss set against the backdrop of war.",
+    image: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+  id: 2,
+  title: "Midnight Whispers",
+  year: "2022",
+  genre: "Thriller",
+  description: "A psychological thriller that keeps you guessing until the very end.",
+  image: "https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&h=675&q=80"
+
+
+},
+{
+  id: 3,
+  title: "Eternal Bonds",
+  year: "2021",
+  genre: "Romance",
+  description: "A timeless love story that transcends generations.",
+  image: "https://images.unsplash.com/photo-1500622944204-b135684e99fd?auto=format&fit=crop&w=1200&h=675&q=80"
+}
+
+];
+
 
   return (
-    <section className={`py-20 ${fullPage ? 'min-h-screen' : ''} bg-film-primary`}>
+    <section className={`mb-20 ${fullPage ? 'min-h-screen' : ''} bg-film-primary`}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -85,7 +92,9 @@ const Movies = ({ fullPage = false }) => {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <button className="border-2 border-film-accent text-film-accent hover:bg-film-accent hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300">
+            <button   onClick={() => navigate('/movies')}
+             className="border-2 border-film-accent text-film-accent hover:bg-film-accent hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300">
+
               View All Films
             </button>
           </motion.div>
